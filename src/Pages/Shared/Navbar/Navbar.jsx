@@ -1,8 +1,27 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
 
- 
+  console.log(user);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: `${error}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
   const navOptions = (
     <>
       <li>
@@ -14,9 +33,7 @@ const Navbar = () => {
       <li>
         <Link to="/shop/dessert">Our Shop</Link>
       </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
+      
     </>
   );
 
@@ -52,8 +69,16 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end mr-5">
+        {user ? (
+          <div className="flex items-center justify-center gap-2 ">
+
+            <button onClick={handleLogOut}>Logout</button>
+            <img src={user.photoURL} alt="" className="rounded-full w-10 border" />
+          </div>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
       </div>
     </div>
   );
