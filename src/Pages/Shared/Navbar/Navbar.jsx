@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { FaCartArrowDown } from "react-icons/fa";
+import useCart from "../../../Hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-
+const [cart]=useCart()
+console.log(cart)
   console.log(user);
   const handleLogOut = () => {
     logOut()
@@ -33,7 +36,6 @@ const Navbar = () => {
       <li>
         <Link to="/shop/dessert">Our Shop</Link>
       </li>
-      
     </>
   );
 
@@ -70,11 +72,18 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end mr-5">
+        <button className="flex mr-3">
+        <FaCartArrowDown className="text-3xl"/>
+          <div className="badge badge-secondary">+{cart.length}</div>
+        </button>
         {user ? (
           <div className="flex items-center justify-center gap-2 ">
-
-            <button onClick={handleLogOut}>Logout</button>
-            <img src={user.photoURL} alt="" className="rounded-full w-10 border" />
+            <button onClick={handleLogOut} >Logout</button>
+            <img
+              src={user.photoURL}
+              alt=""
+              className="rounded-full w-10 border"
+            />
           </div>
         ) : (
           <Link to="/login">Login</Link>

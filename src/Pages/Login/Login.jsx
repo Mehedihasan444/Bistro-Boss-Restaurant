@@ -4,7 +4,7 @@ import {loadCaptchaEnginge,LoadCanvasTemplate,validateCaptcha} from "react-simpl
 import loginImg from "../../assets/others/authentication2.png";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [disable, setDisable] = useState(true);
@@ -15,7 +15,7 @@ const location =  useLocation();
     loadCaptchaEnginge(6);
   }, []);
 
-
+// console.log("test",location.state)
   const handleLogin = (e) => {
     e.preventDefault();
 
