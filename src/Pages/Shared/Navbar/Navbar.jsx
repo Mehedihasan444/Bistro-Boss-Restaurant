@@ -72,10 +72,13 @@ console.log(cart)
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end mr-5">
-        <button className="flex mr-3">
+        <Link to="/dashboard/cart">
+          <button className="flex mr-3">
         <FaCartArrowDown className="text-3xl"/>
           <div className="badge badge-secondary">+{cart.length}</div>
         </button>
+        </Link>
+        
         {user ? (
           <div className="flex items-center justify-center gap-2 ">
             <button onClick={handleLogOut} >Logout</button>

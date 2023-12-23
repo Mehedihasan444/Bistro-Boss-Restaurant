@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+
 import {loadCaptchaEnginge,LoadCanvasTemplate,validateCaptcha} from "react-simple-captcha";
 import loginImg from "../../assets/others/authentication2.png";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import {  useLocation, useNavigate } from "react-router-dom";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disable, setDisable] = useState(true);
@@ -34,7 +35,7 @@ const location =  useLocation();
           timer: 1500,
         });
 
-        navigate(location.state?.from?.pathname || "/")
+        navigate(location?.state || "/")
         // Signed in
         const user = userCredential.user;
         console.log(user);
@@ -126,17 +127,7 @@ const location =  useLocation();
           New here? <a href="/signUp">Create a New Account</a>
         </h3>
         <p className="text-center mb-3">Or sign in with </p>
-        <div className="flex gap-5 justify-center">
-          <button>
-            <FaFacebook className="text-4xl " type="" />
-          </button>
-          <button>
-            <FaGoogle className="text-4xl " type=""></FaGoogle>
-          </button>
-          <button>
-            <FaGithub className="text-4xl " type=""></FaGithub>
-          </button>
-        </div>
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );

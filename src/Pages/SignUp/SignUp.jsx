@@ -4,11 +4,13 @@ import loginImg from "../../assets/others/authentication2.png";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const { createUser, updateUserProfile } = useAuth();
-
+  const axiosPublic = useAxiosPublic();
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -25,17 +27,27 @@ const SignUp = () => {
         // Signed in
         const user = result.user;
         console.log(user);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your account is registered successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+       
         updateUserProfile(name, photo)
           .then(() => {
             console.log("user profile info updated");
-            navigate("/");
+            const userInfo = {
+              name,
+              email,
+            };
+            axiosPublic.post("/users", userInfo).then((res) => {
+              console.log(res.data);
+              if (res.data.insertedId) {
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Your account is registered successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
           })
           .catch((error) => {
             console.log(error);
@@ -97,7 +109,7 @@ const SignUp = () => {
           Already registered? <a href="/login"> Go to login</a>
         </h3>
         <p className="text-center mb-3">Or sign up with </p>
-        <div className="flex gap-5 justify-center">
+        {/* <div className="flex gap-5 justify-center">
           <button>
             <FaFacebook className="text-4xl " type="" />
           </button>
@@ -107,7 +119,8 @@ const SignUp = () => {
           <button>
             <FaGithub className="text-4xl " type=""></FaGithub>
           </button>
-        </div>
+        </div> */}
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );
