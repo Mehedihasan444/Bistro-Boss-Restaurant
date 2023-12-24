@@ -14,6 +14,7 @@ import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
 import AddReview from "../Pages/Dashboard/AddReview";
 import MyBooking from "../Pages/Dashboard/MyBooking";
 import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 const Router = createBrowserRouter([
   {
@@ -46,6 +47,13 @@ const Router = createBrowserRouter([
     path: "dashboard",
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
+      // admin routes
+{
+path:"allUsers",
+element: <AllUsers></AllUsers>
+},
+
+      // user routes
       {
         path: "cart",
         element: <Cart></Cart>,
