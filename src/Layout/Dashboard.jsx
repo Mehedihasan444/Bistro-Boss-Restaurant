@@ -5,10 +5,13 @@ import {
   FaHome,
   FaShoppingBag,
   FaShoppingCart,
+  FaUsers,
 } from "react-icons/fa";
 import {
   MdAddBusiness,
   MdContactPhone,
+  MdManageAccounts,
+  MdManageHistory,
   MdMenuBook,
   MdReviews,
 } from "react-icons/md";
@@ -38,31 +41,31 @@ const Dashboard = () => {
                   </li>
                   <li className="uppercase ">
                     {" "}
-                    <NavLink to="/dashboard/addItem">
+                    <NavLink to="/dashboard/addItems">
                       <IoMdAddCircle /> Add items
                     </NavLink>{" "}
                   </li>
                   <li className="uppercase ">
                     {" "}
-                    <NavLink to="/dashboard/manageItems">manage items</NavLink>{" "}
+                    <NavLink to="/dashboard/manageItems">
+                    <MdManageAccounts />
+                      manage items</NavLink>{" "}
                   </li>
                   <li className="uppercase ">
                     {" "}
-                    <NavLink to="/dashboard/allUsers">all users</NavLink>{" "}
+                    <NavLink to="/dashboard/allUsers">
+                      <FaUsers></FaUsers>
+                      all users</NavLink>{" "}
                   </li>
                   <li className="uppercase ">
                     {" "}
-                    <NavLink to="/dashboard/manageBookings">manage bookings</NavLink>{" "}
+                    <NavLink to="/dashboard/manageBookings">
+                    <MdManageHistory />
+                      manage bookings</NavLink>{" "}
                   </li>
                 </>
               ) : (
                 <>
-                  <li className="uppercase ">
-                    {" "}
-                    <NavLink to="/dashboard/addItem">
-                      <IoMdAddCircle /> Add item
-                    </NavLink>{" "}
-                  </li>
                   <li className="uppercase ">
                     {" "}
                     <NavLink
@@ -130,7 +133,7 @@ const Dashboard = () => {
               </li>
               <li className="uppercase ">
                 {" "}
-                <NavLink to="/contact">
+                <NavLink to="/dashboard/contact">
                   <MdContactPhone />
                   contact
                 </NavLink>{" "}

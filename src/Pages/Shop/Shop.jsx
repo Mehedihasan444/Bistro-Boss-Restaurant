@@ -18,7 +18,7 @@ const [tabIndex,setTabIndex]=useState(initialIndex)
     const salad = menu.filter((item) => item.category === "salad");
     const pizza = menu.filter((item) => item.category === "pizza");
 
-    console.log(category)
+    // console.log(category)
 
   return (
     <div className="">
