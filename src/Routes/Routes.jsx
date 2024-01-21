@@ -21,6 +21,7 @@ import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
 import ManageBookings from "../Pages/Dashboard/ManageBookings/ManageBookings";
 import Contact from "../Pages/Dashboard/Contact";
 import UpdateItem from "../Pages/Dashboard/ManageItems/UpdateItem";
+import Payment from "../Pages/Dashboard/Payment";
 
 const Router = createBrowserRouter([
   {
@@ -108,6 +109,10 @@ const Router = createBrowserRouter([
       {
         path: "userHome",
         element: <PrivateRoute><UserHome></UserHome></PrivateRoute>,
+      },
+      {
+        path: "payment",
+        element: <PrivateRoute><Payment></Payment></PrivateRoute>,
       },
       
       {

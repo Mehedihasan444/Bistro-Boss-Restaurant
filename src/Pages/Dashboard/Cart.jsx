@@ -3,6 +3,7 @@ import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import useCart from "../../Hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart,refetch] = useCart();
@@ -46,7 +47,14 @@ const handleDelete = (id,name) => {
       <div className="flex justify-around ">
         <h1 className="text-4xl font-bold ">Item: {cart.length}</h1>
         <h1 className="text-4xl font-bold ">Total Price: ${totalPrice}</h1>
+        
+{
+  cart.length?<Link to="/dashboard/payment">
         <button className="btn btn-primary bg-[#D1A054] border-none text-white">Pay</button>
+        
+        </Link>
+        :<button disabled className="btn btn-primary bg-[#D1A054] border-none text-white">Pay</button>
+}
       </div>
       {/* table */}
 

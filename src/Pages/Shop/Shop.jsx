@@ -41,7 +41,7 @@ const [tabIndex,setTabIndex]=useState(initialIndex)
 
           <TabPanel >
 
-            <div className="grid grid-cols-3 gap-10 mt-5">
+            <div className="grid sm:grid-cols-3 gap-10 mt-5 px-5 px-5">
            {
             dessert.map((item) => {
               return <FoodCard key={item._id} item={item}></FoodCard>;
@@ -50,7 +50,7 @@ const [tabIndex,setTabIndex]=useState(initialIndex)
            </div>
           </TabPanel>
           <TabPanel>
-          <div className="grid grid-cols-3 gap-10 mt-5">
+          <div className="grid sm:grid-cols-3 gap-10 mt-5 px-5">
            {
             soup.map((item) => {
               return <FoodCard key={item._id} item={item}></FoodCard>;
@@ -60,7 +60,7 @@ const [tabIndex,setTabIndex]=useState(initialIndex)
           </TabPanel>
          
           <TabPanel>
-          <div className="grid grid-cols-3 gap-10 mt-5">
+          <div className="grid sm:grid-cols-3 gap-10 mt-5 px-5">
            {
             salad.map((item) => {
               return <FoodCard key={item._id} item={item}></FoodCard>;
@@ -70,7 +70,7 @@ const [tabIndex,setTabIndex]=useState(initialIndex)
           </TabPanel>
          
           <TabPanel>
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-3 gap-5 px-5">
            {
             pizza.map((item) => {
               return <FoodCard key={item._id} item={item}></FoodCard>;
