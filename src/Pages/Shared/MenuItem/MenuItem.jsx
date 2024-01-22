@@ -11,10 +11,10 @@ const MenuItem = ({ item }) => {
       </div>
       <div className="">
         <div className="flex justify-between items-center">
-          <h3 className="uppercase font-semibold text-xl">{name}----------</h3>
-          <p className="text-yellow-600">${price}</p>
+          <h3 className="uppercase font-semibold lg:text-xl">{name}----------</h3>
+          <p className="text-yellow-600 ">${price}</p>
         </div>
-        <p className="">{recipe}</p>
+        <p className="text-xs w-3/4">{recipe}</p>
       </div>
     </div>
   );

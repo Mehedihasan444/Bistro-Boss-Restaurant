@@ -55,23 +55,36 @@ const FoodCard = ({ item }) => {
   };
 
   return (
-    <div className="card bg-base-100 border">
-      <figure className="">
-        <img src={item.image} alt="Shoes" className="rounded-xl" />
-      </figure>
-      <p className="absolute right-0 mr-4 mt-4 px-4 bg-black text-white rounded-full">
-        ${item.price}
-      </p>
-      <div className="card-body items-center text-center">
-        <h2 className="card-title">{item.name}</h2>
-        <p>{item.recipe}</p>
-        <div className="card-actions">
-          <button className="btn btn-primary" onClick={() => handleCart(item)}>
-            ADD TO CART
-          </button>
-        </div>
-      </div>
+    // <div className="card bg-base-100 border">
+    //   <figure className="">
+    //     <img src={item.image} alt="Shoes" className="rounded-xl" />
+    //   </figure>
+    //   <p className="absolute right-0 mr-4 mt-4 px-4 bg-black text-white rounded-full">
+    //     ${item.price}
+    //   </p>
+    //   <div className="card-body items-center text-center">
+    //     <h2 className="card-title">{item.name}</h2>
+    //     <p>{item.recipe}</p>
+    //     <div className="card-actions">
+    //       <button className="btn btn-primary" onClick={() => handleCart(item)}>
+    //         ADD TO CART
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="card  glass">
+  <figure><img src={item.image} alt="car!" className="transform transition-transform duration-300 ease-in-out hover:scale-105"/></figure>
+  <p className="absolute right-0 mr-4 mt-4 px-4 bg-black text-white rounded-full">
+         ${item.price}
+       </p>
+  <div className="card-body p-4">
+    <h2 className="card-title">{item.name}</h2>
+    <p className="text-justify text-xs">{item.recipe}</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary btn-sm text-xs bg-[#D1A054] border-none text-white" onClick={() => handleCart(item)}>ADD TO CART</button>
     </div>
+  </div>
+</div>
   );
 };
 

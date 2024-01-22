@@ -40,14 +40,14 @@ const handleDeleteMenu = (id, name) => {
 
     return (
         <div>
-            <h1 className="">ManageItems</h1>
+            {/* <h1 className="">ManageItems</h1> */}
             <div className="">
       <SectionTitle
         heading={"MANAGE ALL ITEMS"}
         subHeading={"Hurry Up!"}
       ></SectionTitle>
       <div className="flex justify-around ">
-        <h1 className="text-4xl font-bold ">Item: {menu.length}</h1>
+        <h1 className="lg:text-4xl font-bold ">Item: {menu.length}</h1>
         {/* <h1 className="text-4xl font-bold ">Total Price: ${totalPrice}</h1> */}
         <button className="btn btn-primary bg-[#D1A054] border-none text-white">Pay</button>
       </div>
@@ -56,7 +56,7 @@ const handleDeleteMenu = (id, name) => {
       <div className="overflow-x-auto mt-3">
         <table className="table">
           {/* head */}
-          <thead className="text-2xl bg-[#D1A054] text-white">
+          <thead className="lg:text-2xl bg-[#D1A054] text-white">
             <tr>
               <th>#</th>
               <th>Name</th>

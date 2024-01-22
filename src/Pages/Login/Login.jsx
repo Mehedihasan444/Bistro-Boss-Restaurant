@@ -66,7 +66,7 @@ const location =  useLocation();
 
   return (
     <div className="flex justify-between gap-10 items-center h-screen max-w-6xl mx-auto">
-      <div className="flex-1">
+      <div className="flex-1 hidden sm:inline-block">
         <img src={loginImg} alt="" className="" />
       </div>
       <div className="shadow-md p-10 flex-1">
@@ -104,15 +104,10 @@ const location =  useLocation();
                 onBlur={handleValidateCaptcha}
                 type="text"
                 name="captcha"
-                className="form-control border p-3  w-5/6"
+                className="form-control border p-3  w-full"
                 placeholder="Type here"
               />
-              {/* <button
-                className="btn bg-[#D1A054] text-white"
-                onClick={handleValidateCaptcha}
-              >
-                Validate
-              </button> */}
+            
             </div>
           </div>
           <button

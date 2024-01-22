@@ -61,7 +61,7 @@ const SignUp = () => {
 
   return (
     <div className="flex flex-row-reverse justify-between gap-10 items-center h-screen max-w-6xl mx-auto">
-      <div className="flex-1">
+      <div className="flex-1 hidden sm:inline-block">
         <img src={loginImg} alt="" className="" />
       </div>
       <div className="shadow-md p-10 flex-1">

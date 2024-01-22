@@ -8,21 +8,22 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 const Shop = () => {
-  const categories = ['dessert','soup','salad','pizza',]
-  const {category }=useParams();
+  const categories = ["dessert", "soup", "salad", "pizza"];
+  const { category } = useParams();
+  console.log("--",category)
   const initialIndex = categories.indexOf(category);
-const [tabIndex,setTabIndex]=useState(initialIndex)
-    const [menu] = useMenu();
-    const dessert = menu.filter((item) => item.category === "dessert");
-    const soup = menu.filter((item) => item.category === "soup");
-    const salad = menu.filter((item) => item.category === "salad");
-    const pizza = menu.filter((item) => item.category === "pizza");
+  const [tabIndex, setTabIndex] = useState(initialIndex);
+  const [menu] = useMenu();
+  const dessert = menu.filter((item) => item.category === "dessert");
+  const soup = menu.filter((item) => item.category === "soup");
+  const salad = menu.filter((item) => item.category === "salad");
+  const pizza = menu.filter((item) => item.category === "pizza");
 
-    // console.log(category)
+  // console.log(category)
 
   return (
     <div className="">
-         <Helmet>
+      <Helmet>
         <title>Bistro | Shop</title>
       </Helmet>
       <Cover
@@ -31,54 +32,44 @@ const [tabIndex,setTabIndex]=useState(initialIndex)
         banner={banner}
       ></Cover>
       <div className="max-w-6xl mx-auto flex justify-center my-10">
-        <Tabs defaultIndex={tabIndex} onSelect={(index)=>setTabIndex(index)}>
+        <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList className="flex justify-center my-10">
-          <Tab>Dessert</Tab>
-          <Tab>Soup</Tab>
-          <Tab>Salad</Tab>
-          <Tab>pizza</Tab>
+            <Tab>Dessert</Tab>
+            <Tab>Soup</Tab>
+            <Tab>Salad</Tab>
+            <Tab>pizza</Tab>
           </TabList>
 
-          <TabPanel >
+          <TabPanel>
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5 px-5 ">
+              {dessert.map((item) => {
+                return <FoodCard key={item._id} item={item}></FoodCard>;
+              })}
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5 px-5">
+              {soup.map((item) => {
+                return <FoodCard key={item._id} item={item}></FoodCard>;
+              })}
+            </div>
+          </TabPanel>
 
-            <div className="grid sm:grid-cols-3 gap-10 mt-5 px-5 px-5">
-           {
-            dessert.map((item) => {
-              return <FoodCard key={item._id} item={item}></FoodCard>;
-            })
-           }
-           </div>
-          </TabPanel>
           <TabPanel>
-          <div className="grid sm:grid-cols-3 gap-10 mt-5 px-5">
-           {
-            soup.map((item) => {
-              return <FoodCard key={item._id} item={item}></FoodCard>;
-            })
-           }
-           </div>
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5 px-5">
+              {salad.map((item) => {
+                return <FoodCard key={item._id} item={item}></FoodCard>;
+              })}
+            </div>
           </TabPanel>
-         
+
           <TabPanel>
-          <div className="grid sm:grid-cols-3 gap-10 mt-5 px-5">
-           {
-            salad.map((item) => {
-              return <FoodCard key={item._id} item={item}></FoodCard>;
-            })
-           }
-           </div>
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 px-5">
+              {pizza.map((item) => {
+                return <FoodCard key={item._id} item={item}></FoodCard>;
+              })}
+            </div>
           </TabPanel>
-         
-          <TabPanel>
-          <div className="grid sm:grid-cols-3 gap-5 px-5">
-           {
-            pizza.map((item) => {
-              return <FoodCard key={item._id} item={item}></FoodCard>;
-            })
-           }
-           </div>
-          </TabPanel>
-         
         </Tabs>
       </div>
     </div>

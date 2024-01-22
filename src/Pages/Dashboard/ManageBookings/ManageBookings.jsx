@@ -38,18 +38,18 @@ const ManageBookings = () => {
     <div>
       {/* <h1 className="">ManageBookings</h1> */}
       <SectionTitle
-        heading={"MANAGE ALL BOOKINGS"}
+        heading={"MANAGE BOOKINGS"}
         subHeading={"At a Glance!"}
       ></SectionTitle>
       <div className="flex justify-around ">
-        <h1 className="text-4xl font-bold ">Total Users: {payments.length}</h1>
+        <h1 className="lg:text-4xl font-bold ">Total Users: {payments.length}</h1>
       </div>
       {/* table */}
 
       <div className="overflow-x-auto mt-3">
         <table className="table">
           {/* head */}
-          <thead className="text-2xl bg-[#D1A054] text-white">
+          <thead className="lg:text-2xl bg-[#D1A054] text-white">
             <tr>
               <th>Email</th>
               <th>Phone Number</th>

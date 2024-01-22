@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import Cover from "../../Shared/Cover/Cover";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 
+
 const MenuCategory = ({ category, heading, subHeading, banner }) => {
-  // console.log(heading)
+  // const [cat,setCat]=useState("dessert")
   return (
     <section className=" my-16">
       {heading && (
@@ -13,9 +14,9 @@ const MenuCategory = ({ category, heading, subHeading, banner }) => {
           banner={banner}
         ></Cover>
       )}
-      <div className=" max-w-6xl mx-auto grid sm:grid-cols-2 justify-between gap-10 my-10">
+      <div className="px-5 max-w-6xl mx-auto grid sm:grid-cols-2 justify-between gap-10 my-10">
         {category.map((item) => {
-          return <MenuItem key={item._id} item={item}></MenuItem>;
+          return  <MenuItem key={item._id} item={item}></MenuItem>;
         })}
       </div>
       <div className="flex justify-center items-center">

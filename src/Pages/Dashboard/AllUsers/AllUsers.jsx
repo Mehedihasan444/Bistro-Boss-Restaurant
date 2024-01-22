@@ -69,14 +69,14 @@ axiosSecure.patch(`/users/admin/${id}`)
         subHeading={"How Many??"}
       ></SectionTitle>
       <div className="flex justify-around ">
-        <h1 className="text-4xl font-bold ">Total Users: {users.length}</h1>
+        <h1 className="lg:text-4xl font-bold ">Total Users: {users.length}</h1>
       </div>
       {/* table */}
 
       <div className="overflow-x-auto mt-3">
         <table className="table">
           {/* head */}
-          <thead className="text-2xl bg-[#D1A054] text-white">
+          <thead className="lg:text-2xl bg-[#D1A054] text-white">
             <tr>
               <th>#</th>
 
